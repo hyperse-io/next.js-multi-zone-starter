@@ -1,0 +1,28 @@
+{
+  "name": "docs",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --port 3001",
+    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@hyperse/core": "workspace:*",
+    "next": "^14.2.5",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@hyperse-io/next-env": "^1.1.0",
+    "@hyperse/eslint-config-hyperse": "^1.0.12",
+    "@next/bundle-analyzer": "^14.2.5",
+    "@types/node": "^22.0.2",
+    "@types/react": "latest",
+    "eslint": "^9.8.0",
+    "typescript": "5.5.4"
+  }
+}

@@ -1,0 +1,58 @@
+name: CI-integrity
+
+on:
+  push:
+    branches:
+      - main
+      - major
+      - minor
+    paths:
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - '.github/**'
+
+  pull_request:
+    branches:
+      - main
+      - major
+      - minor
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - 'package.json'
+      - '*.lock'
+      - '.yarnrc.yml'
+      - '.github/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+
+      - name: Check for duplicate dependencies in lock file
+        run: |
+          yarn dedupe --check
+
+      - name: Check for yarn constraints.pro
+        run: |
+          yarn constraints
+
+      # https://github.com/sverweij/dependency-cruiser
+      # - name: Check monorepo dependency graph
+      #   run: |
+      #     yarn check:install

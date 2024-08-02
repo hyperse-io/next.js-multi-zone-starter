@@ -1,0 +1,53 @@
+{
+  "name": "@hyperse/core",
+  "version": "0.0.2",
+  "private": true,
+  "repository": "https://github.com/hyperse-io/next.js-multi-zone-starter",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ],
+    "./tailwind": "./src/tailwind.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "clean": "(rm -rf ./dist || true) && rm -rf .turbo",
+    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "test": "vitest run",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@hyperse/utils": "workspace:*",
+    "jotai": "^2.9.1"
+  },
+  "devDependencies": {
+    "@hyperse/eslint-config-hyperse": "^1.0.12",
+    "@types/react": "latest",
+    "eslint": "^9.8.0",
+    "next-nprogress-bar": "^2.3.13",
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.5"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}

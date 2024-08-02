@@ -1,0 +1,70 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": ".",
+    },
+    {
+      "name": "main",
+      "path": "apps/main",
+    },
+    {
+      "name": "blog",
+      "path": "apps/blog",
+    },
+    {
+      "name": "core",
+      "path": "packages/core",
+    },
+    {
+      "name": "utils",
+      "path": "packages/utils",
+    },
+  ],
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint"
+    ],
+  },
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "never",
+      "source.removeUnusedImports": "always",
+    },
+    "files.associations": {
+      "*.css": "tailwindcss",
+    },
+    // Disable vscode formatting for js,jsx,ts,tsx files
+    // to allow dbaeumer.vscode-eslint to format them
+    "[javascript]": {
+      "editor.formatOnSave": true,
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true,
+    },
+    "[html]": {
+      // Avoid onSave to format evolve/templates/**/*.html
+      "editor.formatOnSave": false,
+    },
+    // https://github.com/Microsoft/vscode-eslint#mono-repository-setup
+    "eslint.workingDirectories": [
+      "./apps/main",
+      "./apps/blog",
+      "./packages/core",
+      "./packages/utils",
+    ],
+    "typescript.tsdk": "root/node_modules/typescript/lib",
+    "[jsonc]": {
+      "editor.formatOnSave": false
+    },
+    "[json]": {
+      "editor.formatOnSave": false
+    },
+    "i18n-ally.localesPaths": [
+      "i18n"
+    ],
+  },
+}

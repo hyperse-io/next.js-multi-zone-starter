@@ -1,0 +1,53 @@
+{
+  "name": "next.js-multi-zone-starter",
+  "private": true,
+  "repository": "https://github.com/hyperse-io/next.js-multi-zone-starter",
+  "description": "Best practices on using Next.js in a TypeScript monorepo",
+  "type": "module",
+  "keywords": [
+    "monorepo",
+    "next.js",
+    "typescript",
+    "yarn next.js monorepo",
+    "turbo"
+  ],
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "clean": "turbo clean",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "start": "turbo start",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "prepare": "husky",
+    "g:lint-staged-files": "lint-staged --allow-empty",
+    "g:changeset": "changeset",
+    "g:release": "yarn build && changeset publish",
+    "g:cz": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.7",
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@hyperse/eslint-config-hyperse": "^1.0.12",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^9.8.0",
+    "husky": "9.1.4",
+    "lint-staged": "^15.2.7",
+    "turbo": "^2.0.11",
+    "vitest": "^2.0.5"
+  },
+  "packageManager": "yarn@4.3.1"
+}

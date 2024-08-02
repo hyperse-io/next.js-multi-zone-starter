@@ -1,0 +1,15 @@
+{
+  "Error": {
+    "title": "服务器错误!",
+    "description": "喝杯咖啡休息一下。喝完咖啡就应该恢复了",
+    "back": "返回首页"
+  },
+  "NotFoundPage": {
+    "title": "无法找到该页",
+    "description": "噢! 当前链接无法找到。如果你认为这是我们的问题，请告诉我们。",
+    "back": "返回首页"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, zh {简体中文} en {English} other {Unknown}}"
+  }
+}

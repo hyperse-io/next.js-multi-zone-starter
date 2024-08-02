@@ -1,0 +1,56 @@
+{
+  "name": "@hyperse/utils",
+  "version": "0.0.2",
+  "private": true,
+  "repository": "https://github.com/hyperse-io/next.js-multi-zone-starter",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "(rm -rf ./dist || true) && rm -rf .turbo",
+    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "test": "vitest run",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.4.0"
+  },
+  "devDependencies": {
+    "@hyperse/eslint-config-hyperse": "^1.0.12",
+    "eslint": "^9.8.0",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.5.4",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.5"
+  },
+  "publishConfig": {
+    "typesVersions": {
+      "*": {
+        "*": [
+          "dist/*.d.ts",
+          "dist/*/index.d.ts"
+        ]
+      }
+    }
+  }
+}
